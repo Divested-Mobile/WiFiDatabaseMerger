@@ -12,3 +12,7 @@ Config File Format
 ------------------
 - First line must be the bounding box: top left lat, top left lon, bottom right lat, bottom right lon
 - All following lines must be databases: file, delimeter, bssid col #, lat col #, lon col #, quoted
+
+Donate
+-------
+BTC: bc1qkjtp2k7cc4kuv8k9wjdlxkeuqczenrpv5mwasl
