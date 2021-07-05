@@ -22,6 +22,8 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created using IntelliJ IDEA
@@ -152,9 +154,9 @@ public class MainN {
             String bssid = wifi[bssidPos];
             String lat = wifi[latPos];
             String lon = wifi[lonPos];
-            if (bssid.length() == 12 && Double.valueOf(lat) >= bottomRightLat
-                && Double.valueOf(lat) <= topLeftLat && Double.valueOf(lon) >= topLeftLon
-                && Double.valueOf(lon) <= bottomRightLon) {
+            if (bssid.length() == 12 && isHexadecimal(bssid)
+                && Double.valueOf(lat) >= bottomRightLat && Double.valueOf(lat) <= topLeftLat
+                && Double.valueOf(lon) >= topLeftLon && Double.valueOf(lon) <= bottomRightLon) {
               databaseOut.put(bssid, lat + ":" + lon);
               cV++;
             }
@@ -174,5 +176,12 @@ public class MainN {
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  //Credit (CC BY-SA 4.0): https://stackoverflow.com/a/13667522
+  private static final Pattern HEXADECIMAL_PATTERN = Pattern.compile("\\p{XDigit}+");
+  private static boolean isHexadecimal(String input) {
+    final Matcher matcher = HEXADECIMAL_PATTERN.matcher(input);
+    return matcher.matches();
   }
 }
