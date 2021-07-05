@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
  * Date: 3/3/16
  * Time: 2:36 PM
  */
-public class MainN {
+public class Main {
 
   private static final Map<String, String> databaseOut = new TreeMap<>();
   private static String wpsdbDir = "";
